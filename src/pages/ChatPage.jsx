@@ -40,8 +40,17 @@ export default function ChatPage (){
 
     function handleOnSubmit(e){
         e.preventDefault();
-        
-        setMessges([...msg,msg]);
+
+        if(!msg.trim()) return;
+
+        const newMsg = {
+            id: messages.length + 1,
+            isSent: true,
+            message: msg   
+        };
+
+        setMessges([...messages,newMsg])
+        setMsg('');
     }
 
     return (
@@ -70,8 +79,8 @@ export default function ChatPage (){
                         </div>       
                     </div>
                     <div className={styles.middle}>
-                        <div>
-                            {msgInfo.map((info) => <MessageContainer key={info.id} msgInfo={info}/>)}      
+                        <div className={styles.msgBox}>
+                            {messages.map((info) => <MessageContainer key={info.id} msgInfo={info}/>)}      
                         </div>            
                     </div>
                     <div className={styles.lower}>

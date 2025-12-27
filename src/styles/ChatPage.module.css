@@ -86,6 +86,7 @@
     padding: 0 20px;
     display: flex;
     align-items: center;
+    z-index: 9999;
 }
 
 .upper img {
@@ -107,10 +108,13 @@
 
 
 .middle {
-   padding: 15px;
-   overflow-y: auto;
    display: flex;
    align-items: flex-end;
+}
+
+.msgBox {
+    padding: 15px;
+    overflow-y: auto;
 }
 
 .middle div {
