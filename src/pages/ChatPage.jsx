@@ -7,7 +7,7 @@ import {useState} from 'react';
 
 export default function ChatPage (){
     const [isMenu, setIsMenu] = useState(false);
-
+    
     const friends = [
         {   
             id: 1,
@@ -28,10 +28,20 @@ export default function ChatPage (){
     const msgInfo = [
         {id:1,isSent: true,message: "Hello, Good Morning"},
         {id:2,isSent: false,message: "Hi iam good"},
+        {id:3,isSent: true,message: "You are so hand some"},
+        {id:4,isSent: true,message: "and very kind"},
+        {id:2,isSent: false,message: "Oh! Thankyou very much and god bless you"},
     ];
-
+    const [messages, setMessges] = useState(msgInfo);
+    const [msg, setMsg] = useState('');
     function openLogout(){
        setIsMenu(!isMenu); 
+    }
+
+    function handleOnSubmit(e){
+        e.preventDefault();
+        
+        setMessges([...msg,msg]);
     }
 
     return (
@@ -60,11 +70,13 @@ export default function ChatPage (){
                         </div>       
                     </div>
                     <div className={styles.middle}>
-                        {msgInfo.map((info) => <MessageContainer key={info.id} msgInfo={info}/>)}            
+                        <div>
+                            {msgInfo.map((info) => <MessageContainer key={info.id} msgInfo={info}/>)}      
+                        </div>            
                     </div>
                     <div className={styles.lower}>
-                        <form>
-                            <input type="text" placeholder='Type your message here...'/>
+                        <form onSubmit={handleOnSubmit}>
+                            <input type="text" placeholder='Type your message here...' onChange={(e)=>setMsg(e.target.value)} value={msg}/>
                             <button type='submit'>Send</button>
                         </form>
                     </div>

@@ -107,7 +107,14 @@
 
 
 .middle {
-   
+   padding: 15px;
+   overflow-y: auto;
+   display: flex;
+   align-items: flex-end;
+}
+
+.middle div {
+    width: 100%;
 }
 
 .lower {
