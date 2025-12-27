@@ -5,11 +5,11 @@ export default function MessageBox({friends}){
         <>
             <div className={styles.friend}>
                 <img src={friends.image} alt="friend profile" />
-                <div>
+                <div className={styles.info}>
                     <h5>{friends.friend_name}</h5>
                     <p>{friends.recent_msg}</p>
                 </div>
-                <p>{friends.time}</p>
+                <p className={styles.time}>{friends.time}</p>
             </div>
         </>
     );
