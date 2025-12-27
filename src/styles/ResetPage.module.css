@@ -1,0 +1,67 @@
+.forgot {
+    background-color: '#ffffff';
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    border-radius: 6px;
+    text-align: center;
+    padding: 20px;
+    height: 320px;
+    margin: 0 10px;
+}
+
+.img {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(0, 255, 174);
+    padding: 8px;
+    border-radius: 50px;
+}
+
+.forgot h3 {
+    margin: 10px 0;
+}
+
+.forgot p {
+    color: grey;
+}
+
+
+.forgot button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    color: white;
+    background-color: rgb(0, 255, 174);
+    margin: 10px 0;
+    border-radius: 6px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.forgot button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 255, 174,0.7);
+}
+
+.reset {
+    text-decoration: none;
+    color: rgba(0, 0, 255, 0.612);
+}
+
+.goBack {
+     margin: 10px 0;
+}
+
+.forgot form p {
+    font-size: 12px;
+}
+
+@media screen and (max-width: 1030px){
+    .forgot {
+        height: 340px;
+    }
+}
+
+@media screen and (max-width: 325px){
+    .forgot {
+        height: 340px;
+    }
+}

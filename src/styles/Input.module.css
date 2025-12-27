@@ -1,0 +1,33 @@
+.input {
+    margin: 10px 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    
+    position: relative;
+}
+
+.input label {
+    font-size: 12px;
+    font-weight: bolder;
+    margin: 10px 0;
+}
+
+
+.input img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 44px;
+    left: 6px;
+}
+
+.input input {
+    height: 40px;
+    padding-left: 30px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    box-shadow:  0 0 3px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
