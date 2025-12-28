@@ -114,6 +114,7 @@
 
 .msgBox {
     padding: 15px;
+    max-height: 480px;
     overflow-y: auto;
 }
 
