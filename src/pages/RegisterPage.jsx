@@ -4,14 +4,21 @@ import emailIcon from '../assets/email-1-svgrepo-com.svg';
 import passwordIcon from '../assets/lock-password-svgrepo-com.svg';
 import profileIcon from '../assets/profile-svgrepo-com.svg';
 import Input from '../components/Input';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import {useState} from 'react';
 
-export default function RegisterPage ({onRegister}) {
-    const navigate = useNavigate();
+export default function RegisterPage ({error,onRegister}) {
+
+    const [credentials, setCredentials] = useState({
+        'name': '',
+        'email': '',
+        'password':'',
+        'repeat_password': ''
+    });
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        onRegister();
+        onRegister(credentials);
     }
     
     return (
@@ -22,11 +29,12 @@ export default function RegisterPage ({onRegister}) {
                     <h3>Create Account</h3>
                     <p><small>Sign up to get started</small></p>
                     <form onSubmit={handleSubmit}>
-                        <Input label='Full Name' icon={profileIcon} type="text" placeholder="Enter your full name"/>
-                        <Input label='Email' icon={emailIcon} type="email   " placeholder="Enter your email"/>
-                        <Input label='Password' icon={passwordIcon} type="password" placeholder="Create a password"/>
-                        <Input label='Password' icon={passwordIcon} type="password" placeholder="Confirm your password"/>
+                        <Input label='Full Name' id="name" name={credentials.name} icon={profileIcon} type="text" placeholder="Enter your full name" onChange={(e)=>setCredentials({...credentials, name: e.target.value})}/>
+                        <Input label='Email' id="email" name={credentials.email} icon={emailIcon} type="email   " placeholder="Enter your email" onChange={(e)=>setCredentials({...credentials,email:e.target.value})}/>
+                        <Input label='Password' id="password" name={credentials.password} icon={passwordIcon} type="password" placeholder="Create a password" onChange={(e)=>setCredentials({...credentials, password: e.target.value})}/>
+                        <Input label='Password' id="repeat_password" name={credentials.repeat_password} icon={passwordIcon} type="password" placeholder="Confirm your password" onChange={(e)=>setCredentials({...credentials,repeat_password: e.target.value})}/>
                         <button type='submit'>Register</button>
+                        <p className={styles.err}>{error.join(" / ")}</p>
                         <p>Already have an account? <span><Link to="/" className={styles.reset}>Login</Link></span></p>
                     </form>
                 </div>

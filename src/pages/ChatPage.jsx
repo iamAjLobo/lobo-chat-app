@@ -5,9 +5,8 @@ import profile from '../assets/message-friend.png';
 import MessageContainer from '../components/MessageContainer';
 import {useState} from 'react';
 
-export default function ChatPage (){
+export default function ChatPage ({id, email,name}){
     const [isMenu, setIsMenu] = useState(false);
-    
     const friends = [
         {   
             id: 1,
@@ -30,7 +29,7 @@ export default function ChatPage (){
         {id:2,isSent: false,message: "Hi iam good"},
         {id:3,isSent: true,message: "You are so hand some"},
         {id:4,isSent: true,message: "and very kind"},
-        {id:2,isSent: false,message: "Oh! Thankyou very much and god bless you"},
+        {id:5,isSent: false,message: "Oh! Thankyou very much and god bless you"},
     ];
     const [messages, setMessges] = useState(msgInfo);
     const [msg, setMsg] = useState('');
@@ -66,7 +65,7 @@ export default function ChatPage (){
                     </div>
                     <div className={styles.input}>
                         <img src={searchIcon} alt="This is an icon" />
-                        <input type='text' placeholder='Search contacts...'/>
+                        <input type='text' id="search" placeholder='Search contacts...'/>
                     </div>
                     {friends.map((friend)=><MessageBox key={friend.id} friends={friend}/>)}
                 </aside>
@@ -74,8 +73,8 @@ export default function ChatPage (){
                     <div className={styles.upper}>
                         <img src={profile} alt="Friend Profiel" /> 
                         <div>
-                            <p className={styles.username}>Alexander Lobo</p>
-                            <p className={styles.email}>aj@gmail.com</p>
+                            <p className={styles.username}>{name}</p>
+                            <p className={styles.email}>{email}</p>
                         </div>       
                     </div>
                     <div className={styles.middle}>
@@ -85,7 +84,7 @@ export default function ChatPage (){
                     </div>
                     <div className={styles.lower}>
                         <form onSubmit={handleOnSubmit}>
-                            <input type="text" placeholder='Type your message here...' onChange={(e)=>setMsg(e.target.value)} value={msg}/>
+                            <input type="text" id='message' placeholder='Type your message here...' onChange={(e)=>setMsg(e.target.value)} value={msg}/>
                             <button type='submit'>Send</button>
                         </form>
                     </div>

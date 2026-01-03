@@ -4,7 +4,7 @@
     border-radius: 6px;
     text-align: center;
     padding: 20px;
-    height: 560px;
+    height: auto;
     margin: 10px 10px;
 }
 
@@ -48,4 +48,8 @@
 
 .register form p {
     font-size: 12px;
+}
+
+.register form .err {
+    color: red;
 }
