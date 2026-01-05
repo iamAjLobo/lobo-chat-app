@@ -1,11 +1,11 @@
 import styles from '../styles/MessageContainer.module.css';
 
-export default function MessageContainer ({msgInfo}){
+export default function MessageContainer ({msgInfo,c_id}){
     return (
         <>
-            <div className={!msgInfo.isSent ? styles.left : styles.right}>
-                <p className={!msgInfo.isSent ? styles.received : styles.sent}>
-                    {msgInfo.message}
+            <div className={msgInfo.sender_id != c_id ? styles.left : styles.right}>
+                <p className={msgInfo.sender_id != c_id ? styles.received : styles.sent}>
+                    {msgInfo.body}
                 </p>
             </div>
         </>

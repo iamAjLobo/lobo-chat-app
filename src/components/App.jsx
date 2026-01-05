@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {Routes, Route, Navigate, useNavigate} from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage'
 import ResetPage from '../pages/ResetPage';
 import ChatPage from '../pages/ChatPage';
 import axios from 'axios';
-
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
